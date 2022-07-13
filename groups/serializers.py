@@ -7,5 +7,6 @@ class GroupSerializer(serializers.Serializer):
     scientific_name = serializers.CharField(max_length=50)
 
     def validate(self, attrs):
-        print(attrs, "attrs")
+        attrs["name"] = attrs["name"].capitalize()
+        attrs["scientific_name"] = attrs["scientific_name"].capitalize()
         return super().validate(attrs)

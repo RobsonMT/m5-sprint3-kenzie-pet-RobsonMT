@@ -6,5 +6,5 @@ class CharacteristicSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=20)
 
     def validate(self, attrs):
-        print(attrs, "attrs")
+        attrs["name"] = attrs["name"].lower()
         return super().validate(attrs)
